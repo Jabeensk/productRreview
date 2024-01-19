@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", type="text/css", href="/styles/styles.css")
+    title Coffee Maker Reviews
+  body
+    h1 Coffee Maker Reviews
+
+    each review in reviews
+      div.review
+        h2= review.coffeeMakerName
+        p strong ID: #{review.id}
+        p strong User ID: #{review.userId}
+        p strong Title: #{review.title}
+        p strong Review: #{review.review}
+
+    form(action="/submit-review", method="post")
+      label(for="coffeeMakerName") Coffee Maker Name:
+      input(type="text", id="coffeeMakerName", name="coffeeMakerName", required)
+
+      label(for="userId") Your User ID:
+      input(type="text", id="userId", name="userId", required)
+
+      label(for="title") Review Title:
+      input(type="text", id="title", name="title", required)
+
+      label(for="review") Your Review:
+      textarea(id="review", name="review", rows="4", required)
+
+      button(type="submit") Submit Review
